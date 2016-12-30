@@ -1298,7 +1298,7 @@ public abstract class IntrospectedTable {
      *
      * @return the string
      */
-    protected String calculateJavaClientInterfacePackage() {
+    public String calculateJavaClientInterfacePackage() {
         JavaClientGeneratorConfiguration config = context
                 .getJavaClientGeneratorConfiguration();
         if (config == null) {
@@ -1316,7 +1316,7 @@ public abstract class IntrospectedTable {
     /**
      * Calculate java client attributes.
      */
-    protected void calculateJavaClientAttributes() {
+    public void calculateJavaClientAttributes() {
         if (context.getJavaClientGeneratorConfiguration() == null) {
             return;
         }

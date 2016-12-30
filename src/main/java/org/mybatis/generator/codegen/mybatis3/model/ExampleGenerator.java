@@ -40,6 +40,8 @@ import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.mybatis.generator.codegen.AbstractJavaGenerator;
 import org.mybatis.generator.codegen.mybatis3.MyBatis3FormattingUtilities;
 
+import com.sun.javafx.scene.control.skin.TooltipSkin;
+
 /**
  * 
  * @author Jeff Butler
@@ -225,10 +227,19 @@ public class ExampleGenerator extends AbstractJavaGenerator {
               introspectedTable.getDAOImplementationType());
       TopLevelClass topLevelClass = new TopLevelClass(type);
       topLevelClass.setVisibility(JavaVisibility.PUBLIC);
-      topLevelClass.addAnnotation("@Service");
       topLevelClass.addImportedType("org.springframework.stereotype.Service;");
       topLevelClass.addImportedType("org.springframework.beans.factory.annotation.Autowired");
-//      topLevelClass.addSuperInterface();
+      topLevelClass.addAnnotation("@Service");
+      FullyQualifiedJavaType parameterType =
+              introspectedTable.getRules().calculateAllFieldsClass();
+      StringBuilder mapperName=new StringBuilder(introspectedTable.calculateJavaClientInterfacePackage());
+      mapperName.append(".");
+      mapperName.append(introspectedTable.getFullyQualifiedTable().getDomainObjectName());
+      mapperName.append("Mapper");
+      topLevelClass.addImportedType(mapperName.toString());
+      parameterType.getFullyQualifiedName();
+      topLevelClass.addImportedType(parameterType.toString()+"Example");
+//      topLevelClass.addImportedType(parameterType.toString()+"Example");//      topLevelClass.addSuperInterface();
       commentGenerator.addJavaFileComment(topLevelClass);
 
       // add default constructor
