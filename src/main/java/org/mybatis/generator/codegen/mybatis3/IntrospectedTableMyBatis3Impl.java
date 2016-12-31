@@ -39,8 +39,6 @@ import org.mybatis.generator.codegen.mybatis3.xmlmapper.XMLMapperGenerator;
 import org.mybatis.generator.config.PropertyRegistry;
 import org.mybatis.generator.internal.ObjectFactory;
 
-import sun.net.www.content.image.gif;
-
 /**
  * The Class IntrospectedTableMyBatis3Impl.
  *
@@ -232,16 +230,19 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
 
         //只是针对service文件生成，不生成bean及example文件，此处去掉改为生成serviceImpl文件
         for (AbstractJavaGenerator javaGenerator : javaModelGenerators) {
-            List<CompilationUnit> compilationUnits = javaGenerator
-                    .getCompilationUnits();
-            for (CompilationUnit compilationUnit : compilationUnits) {
-                GeneratedJavaFile gjf = new GeneratedJavaFile(compilationUnit,
-                        context.getJavaModelGeneratorConfiguration()
-                                .getTargetProject(),
-                                context.getProperty(PropertyRegistry.CONTEXT_JAVA_FILE_ENCODING),
-                                context.getJavaFormatter());
-                answer.add(gjf);
-            }
+        	if(javaGenerator instanceof ExampleGenerator){        //利用修改ExampleGenerator方法生成serviceImpl
+        		List<CompilationUnit> compilationUnits = javaGenerator
+                        .getCompilationUnits();
+                for (CompilationUnit compilationUnit : compilationUnits) {
+                    GeneratedJavaFile gjf = new GeneratedJavaFile(compilationUnit,
+                            context.getJavaModelGeneratorConfiguration()
+                                    .getTargetProject(),
+                                    context.getProperty(PropertyRegistry.CONTEXT_JAVA_FILE_ENCODING),
+                                    context.getJavaFormatter());
+                    gjf.getFormattedContent();
+                    answer.add(gjf);
+                }
+        	}
         }
 
         for (AbstractJavaGenerator javaGenerator : clientGenerators) {

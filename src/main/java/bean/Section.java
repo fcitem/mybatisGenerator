@@ -1,11 +1,7 @@
 package bean;
 
-public class Section {
-    private String bookId;
-
+public class Section extends SectionKey {
     private String bookKey;
-
-    private String chapterId;
 
     private String chapterKey;
 
@@ -27,17 +23,7 @@ public class Section {
 
     private Integer wordcount;
 
-    private String sectionId;
-
     private String content;
-
-    public String getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(String bookId) {
-        this.bookId = bookId == null ? null : bookId.trim();
-    }
 
     public String getBookKey() {
         return bookKey;
@@ -45,14 +31,6 @@ public class Section {
 
     public void setBookKey(String bookKey) {
         this.bookKey = bookKey == null ? null : bookKey.trim();
-    }
-
-    public String getChapterId() {
-        return chapterId;
-    }
-
-    public void setChapterId(String chapterId) {
-        this.chapterId = chapterId == null ? null : chapterId.trim();
     }
 
     public String getChapterKey() {
@@ -133,14 +111,6 @@ public class Section {
 
     public void setWordcount(Integer wordcount) {
         this.wordcount = wordcount;
-    }
-
-    public String getSectionId() {
-        return sectionId;
-    }
-
-    public void setSectionId(String sectionId) {
-        this.sectionId = sectionId == null ? null : sectionId.trim();
     }
 
     public String getContent() {

@@ -1385,7 +1385,7 @@ public abstract class IntrospectedTable {
         sb.append(pakkage);
         sb.append('.');
         sb.append(fullyQualifiedTable.getDomainObjectName());
-        sb.append("Key"); //$NON-NLS-1$
+        sb.append("Key"); //$NON-NLS-1$         //针对于联合组建生成
         setPrimaryKeyType(sb.toString());
 
         sb.setLength(0);

@@ -297,8 +297,10 @@ public class MyBatisGenerator {
         File targetFile;
         String source;
         try {
-            File directory = shellCallback.getDirectory(gjf
-                    .getTargetProject(), gjf.getTargetPackage());
+        	File file=new File(System.getProperty("user.dir"));
+        	String bathPath=file.getParent();
+            File directory = shellCallback.getDirectory(bathPath+"\\"+gjf
+                    .getTargetProject()+"\\src\\main\\java", gjf.getTargetPackage());
             targetFile = new File(directory, gjf.getFileName());
             if (targetFile.exists()) {
                 if (shellCallback.isMergeSupported()) {

@@ -719,6 +719,7 @@ public class Context extends PropertyHolder {
 
                 introspectedTable.initialize();
                 introspectedTable.calculateGenerators(warnings, callback);
+                //生成java文件
                 generatedJavaFiles.addAll(introspectedTable
                         .getGeneratedJavaFiles());
                 //生成xml文件，由于前面没有调用写入文件方法，此处不管

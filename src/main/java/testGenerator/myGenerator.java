@@ -26,7 +26,6 @@ public class myGenerator {
 //	}
 	public static void main(String []args)throws Exception{
 		List<String> warnings = new ArrayList<String>();
-//		File configFile=new File(myGenerator.class.getResource("/generatorConfig.xml").toURI());
 		File configFile=new File(System.getProperty("user.dir").replaceAll("\\\\", "\\\\")+"\\generatorConfig.xml");
 		ConfigurationParser cp = new ConfigurationParser(warnings);
 		Configuration config = cp.parseConfiguration(configFile);

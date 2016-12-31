@@ -110,7 +110,6 @@ public class Interface extends JavaElement implements CompilationUnit {
         if (stringHasValue(getType().getPackageName())) {
             sb.append("package "); //$NON-NLS-1$
             sb.append(getType().getPackageName());
-            sb.append("Service");
             sb.append(';');
             newLine(sb);
             newLine(sb);
