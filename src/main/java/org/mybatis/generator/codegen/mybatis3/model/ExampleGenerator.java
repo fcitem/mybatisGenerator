@@ -207,7 +207,7 @@ public class ExampleGenerator extends AbstractJavaGenerator {
     /**
      * @author fengchao
      * @date 2016年12月30日
-     * 注释
+     * 注释 重写ExampleGenerator生成器来生成serviceImpl类
      */
     public List<CompilationUnit> createServiceImpl() {
       FullyQualifiedTable table = introspectedTable.getFullyQualifiedTable();
@@ -238,7 +238,8 @@ public class ExampleGenerator extends AbstractJavaGenerator {
       commentGenerator.addJavaFileComment(topLevelClass);
       Field field = new Field();
       field.setVisibility(JavaVisibility.DEFAULT);   
-      field.setType(FullyQualifiedJavaType.getStringInstance());
+      FullyQualifiedJavaType mapperType=new FullyQualifiedJavaType(introspectedTable.getFullyQualifiedTable().getDomainObjectName()+"Mapper");
+      field.setType(mapperType);
       field.addAnnotation("@Autowired");
       field.setName("mapper"); //$NON-NLS-1$
       commentGenerator.addFieldComment(field, introspectedTable);
@@ -268,7 +269,7 @@ public class ExampleGenerator extends AbstractJavaGenerator {
     /**
      * @author fengchao
      * @data: 2016年12月31日
-     * @注释：根据方法头拼接出方法体
+     * @注释：根据方法声明拼接出方法体
      */
     protected String getBodyLineByMethord(Method method){
     	StringBuilder builder=new StringBuilder("return mapper.");

@@ -1323,7 +1323,7 @@ public abstract class IntrospectedTable {
 
         StringBuilder sb = new StringBuilder();
         sb.append(context.getServicePackage());
-        sb.append(".Impl");
+        sb.append(".impl");       //service实现类包名
         sb.append('.');
         sb.append(fullyQualifiedTable.getDomainObjectName());
         sb.append("ServiceImpl"); //$NON-NLS-1$

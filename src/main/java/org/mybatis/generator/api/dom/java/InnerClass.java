@@ -244,7 +244,7 @@ public class InnerClass extends JavaElement {
 
         sb.append(" {"); //$NON-NLS-1$
         indentLevel++;
-        
+        OutputUtilities.newLine(sb);    //类头部声明后空一行再写域或者方法;
         Iterator<Field> fldIter = fields.iterator();
         while (fldIter.hasNext()) {
             OutputUtilities.newLine(sb);

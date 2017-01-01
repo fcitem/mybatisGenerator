@@ -328,6 +328,7 @@ public class MyBatisGenerator {
             callback.startTask(getString(
                     "Progress.15", targetFile.getName())); //$NON-NLS-1$
             writeFile(targetFile, source, gjf.getFileEncoding());
+            System.out.println("生成文件在  "+targetFile+"目录下");
         } catch (ShellException e) {
             warnings.add(e.getMessage());
         }

@@ -239,7 +239,7 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
                                     .getTargetProject(),
                                     context.getProperty(PropertyRegistry.CONTEXT_JAVA_FILE_ENCODING),
                                     context.getJavaFormatter());
-                    gjf.getFormattedContent();
+//                    gjf.getFormattedContent();
                     answer.add(gjf);
                 }
         	}
@@ -255,7 +255,7 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
                                 .getTargetProject(),
                                 context.getProperty(PropertyRegistry.CONTEXT_JAVA_FILE_ENCODING),
                                 context.getJavaFormatter());
-                gjf.getFormattedContent();
+//                gjf.getFormattedContent();
                 answer.add(gjf);
             }
         }

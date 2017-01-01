@@ -28,6 +28,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.mybatis.generator.api.dom.OutputUtilities;
+
 /**
  * The Class Interface.
  *
@@ -171,7 +173,7 @@ public class Interface extends JavaElement implements CompilationUnit {
 
         sb.append(" {"); //$NON-NLS-1$
         indentLevel++;
-
+        OutputUtilities.newLine(sb);    //接口头部声明完成后空一行再写域或者方法;
         Iterator<Method> mtdIter = getMethods().iterator();
         while (mtdIter.hasNext()) {
             newLine(sb);
